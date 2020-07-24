@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ServiceNumberComponent } from './service-number/service-number.component';
 import { CalculateComponent } from './calculate/calculate.component';
 import { HistoryComponent } from './history/history.component';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'history',
     component: HistoryComponent,
+  },
+  {
+    path: 'edit/:id',
+    component: EditComponent,
   },
 ];
 

@@ -1,1 +1,24 @@
-<p>history works!</p>
+<div class="history-container">
+  <span>Bill history</span>
+  <table>
+    <thead>
+      <th>Last Meter reading</th>
+      <th>Current Reading</th>
+      <th>Units consumed</th>
+      <th>Amount</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1250</td>
+        <td>1350</td>
+        <td>100</td>
+        <td>0.0</td>
+        <td>
+          <a routerLink="/edit/{{ 1 }}">Edit</a>
+          <a routerLink (click)="delete()">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

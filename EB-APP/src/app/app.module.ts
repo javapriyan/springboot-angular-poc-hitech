@@ -10,8 +10,9 @@ import { CalculateComponent } from './calculate/calculate.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { HistoryComponent } from './history/history.component';
+import { EditComponent } from './edit/edit.component';
 @NgModule({
-  declarations: [AppComponent, ServiceNumberComponent, CalculateComponent, HistoryComponent],
+  declarations: [AppComponent, ServiceNumberComponent, CalculateComponent, HistoryComponent, EditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
