@@ -11,8 +11,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { HistoryComponent } from './history/history.component';
 import { EditComponent } from './edit/edit.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [AppComponent, ServiceNumberComponent, CalculateComponent, HistoryComponent, EditComponent],
+  declarations: [
+    AppComponent,
+    ServiceNumberComponent,
+    CalculateComponent,
+    HistoryComponent,
+    EditComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +28,9 @@ import { EditComponent } from './edit/edit.component';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
