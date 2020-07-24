@@ -1,1 +1,18 @@
-<p>calculate works!</p>
+<div class="calculate-container">
+  <div *ngIf="isHavePreviousReading">
+    <form>
+      <label for="last_meter_reading">Last meter reading :</label>
+      <input
+        type="number"
+        readonly
+        name="last_meter_reading"
+        id="last_meter_reading"
+      />
+
+      <label for="last_meter_reading">Current meter reading :</label>
+      <input type="number" name="last_meter_reading" id="last_meter_reading" />
+      <h4>Number of units consumed : {{ "0" }}</h4>
+      <button>Calculate</button>
+    </form>
+  </div>
+</div>

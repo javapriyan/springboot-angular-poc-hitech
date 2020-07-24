@@ -9,8 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { CalculateComponent } from './calculate/calculate.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { HistoryComponent } from './history/history.component';
 @NgModule({
-  declarations: [AppComponent, ServiceNumberComponent, CalculateComponent],
+  declarations: [AppComponent, ServiceNumberComponent, CalculateComponent, HistoryComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
