@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
+import { IReadingData } from '../calculate/calculate.component';
 
 @Component({
   selector: 'app-history',
@@ -6,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history.component.scss'],
 })
 export class HistoryComponent implements OnInit {
-  constructor() {}
+  history: IReadingData[];
+  constructor(private appService: AppService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.appService.loadHistory().subscribe(
+      (resp) => {
+        this.history = resp['data'];
+      },
+      (error) => alert('Something went wrong')
+    );
+  }
 
   delete() {}
 }

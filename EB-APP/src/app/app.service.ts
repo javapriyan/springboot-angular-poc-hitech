@@ -106,4 +106,8 @@ export class AppService {
     return this.http.get(environment.api.editCalculation);
     // return this.http.put(environment.api.editCalculation, payload);
   }
+
+  loadHistory() {
+    return this.http.get(environment.api.history);
+  }
 }

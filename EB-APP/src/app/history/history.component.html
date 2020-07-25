@@ -9,13 +9,14 @@
       <th>Actions</th>
     </thead>
     <tbody>
-      <tr>
-        <td>1250</td>
-        <td>1350</td>
-        <td>100</td>
-        <td>0.0</td>
-        <td>
-          <a routerLink="/edit/{{ 1 }}">Edit</a>
+      <tr *ngFor="let item of history; let first = first">
+        <td>{{ item.lastMeterReading }}</td>
+        <td>{{ item.currentReading }}</td>
+        <td>{{ item.unitsConsumed }}</td>
+        <td>{{ item.amount }}</td>
+
+        <td *ngIf="first">
+          <a routerLink="/edit/{{ 1 }}">Edit</a>&nbsp;
           <a routerLink (click)="delete()">Delete</a>
         </td>
       </tr>
