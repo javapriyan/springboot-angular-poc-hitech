@@ -1,10 +1,11 @@
 <div class="calculate-container">
-  <div *ngIf="isHavePreviousReading">
-    <form>
+  <div *ngIf="isHavePreviousReading; else notHavingPreviousReading">
+    <form [formGroup]="calculateForm" (ngSubmit)="onSubmit()">
       <label for="last_meter_reading">Last meter reading :</label>
       <input
         type="number"
         readonly
+        formControlName="lastMeterReading"
         name="last_meter_reading"
         id="last_meter_reading"
       />
@@ -12,11 +13,37 @@
       <label for="last_meter_reading">Current meter reading :</label>
       <input
         type="number"
+        formControlName="currentReading"
         name="current_meter_reading"
         id="last_meter_reading"
       />
-      <h4>Number of units consumed : {{ "0" }}</h4>
-      <button>Calculate</button>
+      <h4 *ngIf="this.calculateForm?.value?.currentReading">
+        Number of units consumed :
+        {{
+          this.calculateForm?.value?.currentReading -
+            this.calculateForm?.value?.lastMeterReading
+        }}
+      </h4>
+      <button type="submit">
+        {{ this.readingData ? "Edit" : "Calculate" }}
+      </button>
     </form>
   </div>
+
+  <ng-template #notHavingPreviousReading>
+    <form [formGroup]="lastMeterReadingForm" (ngSubmit)="onSave()">
+      <label for="last_meter_reading"
+        >Enter your Last billed meter reading :</label
+      >
+      <input
+        type="number"
+        formControlName="lastMeterReading"
+        name="last_meter_reading"
+        id="last_meter_reading"
+      />
+      <button type="submit" [disabled]="!lastMeterReadingForm.valid">
+        Save
+      </button>
+    </form>
+  </ng-template>
 </div>

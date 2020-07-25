@@ -4,6 +4,7 @@ import { ServiceNumberComponent } from './service-number/service-number.componen
 import { CalculateComponent } from './calculate/calculate.component';
 import { HistoryComponent } from './history/history.component';
 import { EditComponent } from './edit/edit.component';
+import { ServiceGuard } from './service.guard';
 
 const routes: Routes = [
   {
@@ -13,14 +14,17 @@ const routes: Routes = [
   {
     path: 'calculate',
     component: CalculateComponent,
+    canActivate: [ServiceGuard],
   },
   {
     path: 'history',
     component: HistoryComponent,
+    canActivate: [ServiceGuard],
   },
   {
     path: 'edit/:id',
     component: EditComponent,
+    canActivate: [ServiceGuard],
   },
 ];
 

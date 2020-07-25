@@ -7,6 +7,11 @@ export const environment = {
   api: {
     getHistoryById:
       'https://run.mocky.io/v3/4c288c7d-cfeb-4e04-88ef-7ca765dfb0d2',
+    fetch: 'https://run.mocky.io/v3/d403505e-7ff3-4fbf-815b-df880df04e6c',
+    saveLastMeterReading:
+      'https://run.mocky.io/v3/d403505e-7ff3-4fbf-815b-df880df04e6c',
+    saveCalculation:
+      'https://run.mocky.io/v3/d403505e-7ff3-4fbf-815b-df880df04e6c',
   },
 };
 

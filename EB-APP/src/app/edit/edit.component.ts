@@ -29,4 +29,7 @@ export class EditComponent implements OnInit {
       );
     }
   }
+  onEdit($event) {
+    console.log($event);
+  }
 }

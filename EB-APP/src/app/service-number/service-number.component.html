@@ -1,12 +1,13 @@
 <div class="service-number-container">
-  <form>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <label for="service_number">Service number : </label>
     <input
       type="text"
       id="service_number"
+      formControlName="serviceNumber"
       name="serviceNumber"
       placeholder="Service number"
     />
-    <button type="submit">Fetch</button>
+    <button type="submit" [disabled]="!loginForm.valid">Fetch</button>
   </form>
 </div>

@@ -1,3 +1,7 @@
 <div class="edit-container">
-  <app-calculate *ngIf="readingData" [readingData]="readingData"></app-calculate>
+  <app-calculate
+    *ngIf="readingData"
+    [readingData]="readingData"
+    (onEdit)="onEdit($event)"
+  ></app-calculate>
 </div>
