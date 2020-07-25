@@ -110,4 +110,9 @@ export class AppService {
   loadHistory() {
     return this.http.get(environment.api.history);
   }
+
+  deleteHistory(id: string) {
+    return this.http.get(environment.api.deleteHistory);
+    // return this.http.delete(environment.api.deleteHistory + id);
+  }
 }

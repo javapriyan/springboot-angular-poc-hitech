@@ -20,5 +20,12 @@ export class HistoryComponent implements OnInit {
     );
   }
 
-  delete() {}
+  delete(id: string, index: number) {
+    this.appService.deleteHistory(id).subscribe(
+      (resp) => {
+        this.history.splice(index, 1);
+      },
+      (error) => alert('Something went wrong')
+    );
+  }
 }

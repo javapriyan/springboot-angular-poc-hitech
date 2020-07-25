@@ -15,6 +15,8 @@ export const environment = {
     editCalculation:
       'https://run.mocky.io/v3/d403505e-7ff3-4fbf-815b-df880df04e6c',
     history: 'https://run.mocky.io/v3/e2ec74a7-dd2e-4eeb-9f0a-ddce3e13ac40',
+    deleteHistory:
+      'https://run.mocky.io/v3/d403505e-7ff3-4fbf-815b-df880df04e6c',
   },
 };
 
