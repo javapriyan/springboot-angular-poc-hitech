@@ -38,6 +38,10 @@ export class CalculateComponent implements OnInit {
         this.readingData.currentReading
       );
     } else {
+      if (!this.appService.isNewUser) {
+        this.onCreateCalculateForm(this.appService.lastMeterReading, null);
+        this.isHavePreviousReading = true;
+      }
     }
   }
   onCreateCalculateForm(previousValue: number, currentValue: number = null) {
@@ -78,7 +82,8 @@ export class CalculateComponent implements OnInit {
         (resp) => {
           this.appService.setData(
             this.appService.serviceNumber,
-            this.lastMeterReadingForm.value.lastMeterReading
+            this.lastMeterReadingForm.value.lastMeterReading,
+            false
           );
           this.onCreateCalculateForm(this.appService.lastMeterReading, null);
           this.isHavePreviousReading = true;

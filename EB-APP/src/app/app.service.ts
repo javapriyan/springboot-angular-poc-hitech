@@ -10,9 +10,14 @@ import { environment } from 'src/environments/environment';
 export class AppService {
   private _serviceNumber = null;
   private _lastMeterReading = null;
+  private _isNewUser = null;
 
   get serviceNumber() {
     return this._serviceNumber;
+  }
+
+  get isNewUser() {
+    return this._isNewUser;
   }
 
   get lastMeterReading() {
@@ -25,9 +30,14 @@ export class AppService {
     return this.http.get<any>(environment.api.getHistoryById);
   }
 
-  setData(serviceNumber: string, lastMeterReading) {
+  setData(
+    serviceNumber: string,
+    lastMeterReading: number = 0,
+    isNewUser: boolean = true
+  ) {
     this._lastMeterReading = lastMeterReading;
     this._serviceNumber = serviceNumber;
+    this._isNewUser = isNewUser;
   }
 
   onCalculate(consumed: number): number {
@@ -63,6 +73,7 @@ export class AppService {
 
   fetch(payload: { serviceNumber: string }) {
     return this.http.get(environment.api.fetch);
+    // return this.http.post(environment.api.fetch, payload);
   }
 
   saveLastMeterReading({ lastMeterReading }) {
@@ -71,6 +82,7 @@ export class AppService {
       serviceNumber: this.serviceNumber,
     };
     return this.http.get(environment.api.saveLastMeterReading);
+    // return this.http.post(environment.api.saveLastMeterReading, payload);
   }
 
   saveCalculation({ currentReading, unitsConsumed, amount }) {
@@ -81,5 +93,6 @@ export class AppService {
       serviceNumber: this.serviceNumber,
     };
     return this.http.get(environment.api.saveCalculation);
+    // return this.http.post(environment.api.saveCalculation, payload);
   }
 }

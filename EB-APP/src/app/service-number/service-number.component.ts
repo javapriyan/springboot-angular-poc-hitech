@@ -20,16 +20,20 @@ export class ServiceNumberComponent implements OnInit {
   }
 
   onSubmit() {
-    this.appService.setData(null, null);
+    this.appService.setData(null, null, true);
     this.appService.fetch(this.loginForm.value).subscribe(
       (data) => {
-        const lastMeterReading =
-          data['lastMeterReading'] && data['lastMeterReading'] !== 0
-            ? data['lastMeterReading']
-            : null;
+        const lastMeterReading = data['lastMeterReading']
+          ? data['lastMeterReading']
+          : 0;
+        const isNewUser =
+          data['isNewUser'] !== undefined && data['isNewUser'] !== null
+            ? data['isNewUser']
+            : true;
         this.appService.setData(
           this.loginForm.value.serviceNumber,
-          lastMeterReading
+          lastMeterReading,
+          isNewUser
         );
         this.router.navigate(['/calculate']);
       },
