@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../app.service';
 
 // Component communication example
@@ -13,7 +13,8 @@ export class EditComponent implements OnInit {
   readingData;
   constructor(
     private activeRoute: ActivatedRoute,
-    private appService: AppService
+    private appService: AppService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +31,14 @@ export class EditComponent implements OnInit {
     }
   }
   onEdit($event) {
-    console.log($event);
+    this.appService.editCalculation($event).subscribe(
+      (data) => {
+        alert('Edited successfully');
+        this.router.navigate(['/history']);
+      },
+      (error) => {
+        alert('Something went wrong ');
+      }
+    );
   }
 }

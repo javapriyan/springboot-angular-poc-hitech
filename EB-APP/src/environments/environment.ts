@@ -12,6 +12,8 @@ export const environment = {
       'https://run.mocky.io/v3/d403505e-7ff3-4fbf-815b-df880df04e6c',
     saveCalculation:
       'https://run.mocky.io/v3/d403505e-7ff3-4fbf-815b-df880df04e6c',
+    editCalculation:
+      'https://run.mocky.io/v3/d403505e-7ff3-4fbf-815b-df880df04e6c',
   },
 };
 

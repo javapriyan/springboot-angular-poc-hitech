@@ -95,4 +95,15 @@ export class AppService {
     return this.http.get(environment.api.saveCalculation);
     // return this.http.post(environment.api.saveCalculation, payload);
   }
+
+  editCalculation({ currentReading, unitsConsumed, amount }) {
+    const payload = {
+      currentReading,
+      unitsConsumed,
+      amount,
+      serviceNumber: this.serviceNumber,
+    };
+    return this.http.get(environment.api.editCalculation);
+    // return this.http.put(environment.api.editCalculation, payload);
+  }
 }
